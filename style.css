@@ -1,0 +1,214 @@
+/* ====== Global Dark Modern Theme ====== */
+:root {
+  --color-bg: #0a0a0a;
+  --color-bg-light: #121212;
+  --color-text: #f4f4f4;
+  --color-text-secondary: #a0a0a0;
+  --color-blue: #3b82f6;
+  --color-blue-dark: #2563eb;
+  --color-border: #2a2a2a;
+  --color-purple: #a855f7;
+  --color-cyan: #00f7ff;
+}
+
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-light) 100%);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== Navbar ===== */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 4rem;
+  background-color: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+#navbar.scrolled {
+  background-color: var(--color-bg-light);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.8rem 4rem;
+}
+#navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--color-blue), var(--color-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+#navbar .logo:hover {
+  transform: scale(1.05);
+}
+#navbar ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+#navbar a {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.3s ease;
+}
+#navbar a:hover {
+  color: var(--color-blue);
+}
+
+/* ===== Hero / Home Section ===== */
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem;
+  text-align: center;
+
+  background: linear-gradient(270deg, var(--color-blue), var(--color-purple), var(--color-cyan));
+  background-size: 600% 600%;
+  animation: gradientMove 15s ease infinite;
+  z-index: 1;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+#home h1 span {
+  background: linear-gradient(90deg, var(--color-blue), var(--color-purple), var(--color-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#home p {
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+#home .links a {
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(90deg, var(--color-blue), var(--color-purple));
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+#home .links a:hover {
+  background: linear-gradient(90deg, var(--color-purple), var(--color-cyan));
+  transform: scale(1.05);
+}
+
+.bg-home {
+  background: linear-gradient(135deg, #0a0a0a 0%, #111827 100%);
+}
+
+/* ===== Stars Random ===== */
+#stars-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.8;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+/* Fade from Top */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-down {
+  opacity: 0;
+}
+.fade-down.show {
+  animation: fadeDown 0.9s ease forwards;
+}
+
+/* Fade from Right */
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fade-right {
+  opacity: 0;
+}
+.fade-right.show {
+  animation: fadeRight 0.9s ease forwards;
+}
+
+/* Fade from Left */
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fade-left {
+  opacity: 0;
+}
+.fade-left.show {
+  animation: fadeLeft 0.9s ease forwards;
+}

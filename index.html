@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio - Pasha Adjusta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: radial-gradient(
+            circle at top left,
+            rgba(29, 78, 216, 0.15),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(168, 85, 247, 0.15),
+            transparent 40%
+          ),
+          linear-gradient(135deg, #0f172a, #1e293b);
+        overflow-x: hidden;
+        color: #e5e7eb;
+      }
+
+      /* Premium Glow Navbar */
+      #navbar {
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      /* Animated Gradient Text */
+      .gradient-text {
+        background: linear-gradient(90deg, #124ba6, #a855f7, #df0cdb, #5797fe);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 8s ease infinite;
+        background-size: 300% auto;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Glassmorphism Card */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        border-radius: 1rem;
+      }
+      .glass-card:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      }
+
+   /* ===== Animations ===== */
+
+/* Fade Up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  opacity: 0;
+}
+.fade-up.show {
+  animation: fadeUp 0.9s ease forwards;
+}
+
+/* Fade Down */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-down {
+  opacity: 0;
+}
+.fade-down.show {
+  animation: fadeDown 0.9s ease forwards;
+}
+
+/* Fade Left */
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fade-left {
+  opacity: 0;
+}
+.fade-left.show {
+  animation: fadeLeft 0.9s ease forwards;
+}
+
+/* Fade Right */
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fade-right {
+  opacity: 0;
+}
+.fade-right.show {
+  animation: fadeRight 0.9s ease forwards;
+}
+
+/* Slide In (from left) */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.slide-in {
+  opacity: 0;
+}
+.slide-in.show {
+  animation: slideIn 0.9s ease forwards;
+}
+
+/* Floating Elements */
+@keyframes floatAnim {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.float {
+  animation: floatAnim 6s ease-in-out infinite;
+}
+
+/* ====== DELAY UTILITY ====== */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1s; }
+.delay-6 { animation-delay: 1.2s; }
+.delay-7 { animation-delay: 1.4s; }
+.delay-8 { animation-delay: 1.6s; }
+
+
+      /* Button Glow */
+      .btn-premium {
+        background: linear-gradient(90deg, #3b82f6, #a855f7);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+      }
+      .btn-premium:hover {
+        background: linear-gradient(90deg, #a855f7, #facc15);
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body class="text-gray-100">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-gray-900/40">
+      <div
+        class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16"
+      >
+        <a href="#Home" class="text-xl font-bold tracking-wide gradient-text fade-left"
+          >Pasha<span>Dev</span></a
+        >
+        <div class="hidden md:flex space-x-8 text-gray-300 fade-up">
+          <a href="#Home" class="hover:text-blue-400 fade-down"
+          style="animation-delay: 0.4s">Home</a>
+          <a href="#about" class="hover:text-blue-400 fade-down"
+          style="animation-delay: 0.6s">About</a>
+          <a href="#skills" class="hover:text-blue-400 fade-down"
+          style="animation-delay: 0.8s">Skills</a>
+          <a href="#Portofolio" class="hover:text-blue-400 fade-down"
+          style="animation-delay: 1s">Portofolio</a>
+          <a href="#contact" class="hover:text-blue-400 fade-down"
+          style="animation-delay: 1.4s">Contact</a>
+        </div>
+        <button id="menu-btn" class="md:hidden text-white text-2xl">☰</button>
+      </div>
+    </nav>
+
+    <!-- ====== Scroll Effect JS (VERSI 1, diperbaiki variabelnya) ====== -->
+    <script>
+      const nav = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          nav.classList.add("bg-gray-900/90", "border-gray-800");
+          nav.classList.remove("bg-gray-900/50", "border-transparent");
+        } else {
+          nav.classList.add("bg-gray-900/50", "border-transparent");
+          nav.classList.remove("bg-gray-900/90", "border-gray-800");
+        }
+      });
+
+      // Mobile Menu Toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+
+    <section
+    id="Home"
+      class="relative overflow-hidden h-screen flex items-center justify-center"
+    >
+      <!-- Stars Container -->
+      <div id="stars-container">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+      </div>
+
+      <!-- Nebula -->
+      <div class="nebula nebula1"></div>
+      <div class="nebula nebula2"></div>
+      <div class="nebula nebula3"></div>
+
+      <!-- Shooting stars -->
+      <div class="shooting-star"></div>
+      <div class="shooting-star delay-1"></div>
+      <div class="shooting-star delay-10"></div>
+      <div class="shooting-star delay-30"></div>
+
+      <!-- Container shooting stars -->
+      <div id="stars-container"></div>
+
+      <style>
+        #stars-container {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          pointer-events: none; /* supaya tidak ganggu klik */
+          z-index: -1; /* taruh di belakang */
+        }
+
+        .shooting-star {
+          position: absolute;
+          width: 2px;
+          height: 80px;
+          background: linear-gradient(-45deg, white, rgba(255, 255, 255, 0));
+          opacity: 0.8;
+          transform: rotate(45deg);
+          animation: shooting 1.5s linear forwards;
+        }
+
+        @keyframes shooting {
+          0% {
+            transform: translate(0, 0) rotate(45deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translate(400px, 600px) rotate(45deg);
+            opacity: 0;
+          }
+        }
+      </style>
+
+      <script>
+        function createStar() {
+          const star = document.createElement("div");
+          star.classList.add("shooting-star");
+
+          // random posisi awal
+          star.style.top = Math.random() * window.innerHeight * 0.5 + "px";
+          star.style.left = Math.random() * window.innerWidth + "px";
+
+          // random ukuran
+          star.style.width = Math.random() * 2 + 2 + "px";
+          star.style.height = Math.random() * 60 + 40 + "px";
+
+          // random delay (biar nggak barengan)
+          star.style.animationDuration = Math.random() * 1 + 5 + "s";
+
+          document.getElementById("stars-container").appendChild(star);
+
+          // hapus setelah animasi selesai
+          setTimeout(() => {
+            star.remove();
+          }, 2000);
+        }
+
+        // spawn bintang tiap 500ms
+        setInterval(createStar, 1000);
+      </script>
+
+      <!-- Content -->
+      
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <!-- Subtle Intro -->
+        <p
+          class="text-sm md:text-base text-gray-400 tracking-widest uppercase mb-4 fade-down"
+           style="animation-delay: 0.5s"
+        >
+          Welcome to My Portfolio
+        </p>
+
+        <!-- Name -->
+        <h1
+          class="text-4xl md:text-6xl font-extrabold leading-tight text-white drop-shadow-2xl fade-left"
+           style="animation-delay: 0.7s"
+        >
+          HI, I'M
+          <span
+            class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 animate-gradient"
+          >
+            PASHA FAHMI ADJUSTA
+          </span>
+        </h1>
+
+        <!-- Roles -->
+        <p
+          class="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed fade-right"
+           style="animation-delay: 0.9s"
+        >
+          Crafting seamless <span class="text-purple-400">Mobile Apps</span>,
+          modern <span class="text-blue-400">Web Interfaces</span>, and
+          intuitive <span class="text-pink-400">UI/UX Designs</span>.
+        </p>
+
+        <!-- CTA -->
+        <div class="mt-8 flex justify-center gap-4 animate-fadeIn">
+          <a
+            href="#about"
+            class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium shadow-lg hover:opacity-90 transition fade-up"
+             style="animation-delay: 0.5s"
+          >
+            About Me
+          </a>
+          <a
+            href="#contact"
+            class="px-6 py-3 rounded-full border border-gray-500 text-gray-300 font-medium hover:bg-white hover:text-black transition fade-up"
+             style="animation-delay: 0.8s"
+          >
+            Contact
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* Background Space */
+      section {
+        background: radial-gradient(
+          ellipse at bottom,
+          #0a0f1f 0%,
+          #000000 100%
+        );
+        overflow: hidden;
+      }
+
+      /* Stars Layer */
+      #stars-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+      }
+      .stars,
+      .stars2,
+      .stars3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 1px;
+        background: transparent;
+      }
+      .stars {
+        box-shadow: 100px 200px white, 300px 600px white, 500px 1200px white,
+          900px 800px white, 1200px 1500px white, 1600px 400px white,
+          1800px 900px white, 200px 1400px white, 400px 1000px white,
+          800px 1600px white, 1000px 1800px white, 1400px 1300px white;
+        animation: animStar 100s linear infinite;
+      }
+      .stars2 {
+        width: 2px;
+        height: 2px;
+        box-shadow: 150px 300px white, 600px 900px white, 1100px 500px white,
+          1400px 1600px white, 1800px 1300px white, 2000px 700px white;
+        animation: animStar 200s linear infinite;
+      }
+      .stars3 {
+        width: 3px;
+        height: 3px;
+        box-shadow: 200px 400px white, 800px 1200px white, 1600px 1000px white,
+          1900px 1500px white, 2200px 800px white;
+        animation: animStar 300s linear infinite;
+      }
+      @keyframes animStar {
+        from {
+          transform: translateY(0px);
+        }
+        to {
+          transform: translateY(-2000px);
+        }
+      }
+
+      /* Nebula */
+      .nebula {
+        position: absolute;
+        width: 800px;
+        height: 800px;
+        border-radius: 50%;
+        filter: blur(200px);
+        opacity: 0.3;
+        z-index: 0;
+      }
+      .nebula1 {
+        top: 20%;
+        left: 10%;
+        background: radial-gradient(
+          circle,
+          rgba(138, 43, 226, 0.7),
+          transparent 70%
+        );
+        animation: float1 40s infinite alternate ease-in-out;
+      }
+      .nebula2 {
+        bottom: 10%;
+        right: 15%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 191, 255, 0.6),
+          transparent 70%
+        );
+        animation: float2 50s infinite alternate ease-in-out;
+      }
+      .nebula3 {
+        top: 50%;
+        left: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 20, 147, 0.4),
+          transparent 70%
+        );
+        animation: float3 60s infinite alternate ease-in-out;
+      }
+      @keyframes float1 {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(60px);
+        }
+      }
+      @keyframes float2 {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-80px);
+        }
+      }
+      @keyframes float3 {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.2);
+        }
+      }
+
+      /* Shooting Star */
+      .shooting-star {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        width: 2px;
+        height: 80px;
+        background: linear-gradient(-45deg, white, rgba(255, 255, 255, 0));
+        opacity: 0;
+        transform: rotate(45deg);
+        border-radius: 50%;
+        animation: shooting 6s ease-in-out infinite;
+      }
+      .shooting-star.delay-1 {
+        animation-delay: 2s;
+      }
+      .shooting-star.delay-2 {
+        animation-delay: 4s;
+      }
+      @keyframes shooting {
+        0% {
+          opacity: 0;
+          transform: translateX(0) translateY(0) rotate(45deg);
+        }
+        10% {
+          opacity: 1;
+        }
+        50% {
+          transform: translateX(-800px) translateY(800px) rotate(45deg);
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* Gradient Text Premium */
+      .gradient-text {
+        background: linear-gradient(90deg, #00f2fe, #4facfe, #0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+
+    <!-- About Section -->
+    <section id="about" class="space-background py-32">
+      <div
+        class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <!-- Text -->
+        <div class="fade-up delay-1">
+          <h2 class="text-3xl font-bold tracking-wide gradient-text">
+            About Me
+          </h2>
+          <p class="text-gray-400 leading-relaxed mt-8 mb-6">
+            Fresh graduate from SMK Telkom Malang majoring in Software
+            Engineering, with a focus on Mobile Development, Front-End
+            Development (React), and UI/UX Design. Experienced in building
+            responsive and interactive interfaces using React, JavaScript, and
+            Flutter, as well as designing user flows and prototypes with Figma.
+            Skilled in cross-functional team collaboration, integrating user
+            feedback into product development, and holding certifications in
+            JavaScript and Fullstack Development. Highly motivated to create
+            efficient, user-centered digital solutions.
+          </p>
+        </div>
+
+        <!-- Image -->
+        <div class="flex justify-center md:justify-end fade-right delay-3 mt-20">
+          <img
+            src="assets/poto-1.jpg"
+            alt="Foto Pasha"
+            class="rounded-lg shadow-lg border border-gray-800 w-80 h-auto object-cover"
+          />
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="max-w-7xl mx-auto px-6 mt-15 fade-left delay-5">
+        
+        <h2 class="text-3xl md:text-4xl font-bold gradient-text">
+          Education
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8 mt-10">
+          <!-- Card 1 -->
+          <div
+            class="p-6 bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl shadow-xl hover:scale-105 transition"
+          >
+            <h3 class="text-xl font-bold text-purple-400">SMK Telkom Malang</h3>
+            <p class="text-gray-300">Software Engineering (RPL)</p>
+            <span class="text-gray-400 text-sm">2022 - 2025</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto text-center mt-32">
+        <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-8">
+          Skills
+        </h2>
+        <!-- isi konten skills kamu -->
+        <div
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-10 justify-items-center"
+        >
+          <!-- Flutter -->
+          <div
+            class="flex flex-col items-center text-center fade-up"
+            style="animation-delay: 0.1s"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-2xl shadow-lg shadow-blue-400 flex items-center justify-center hover:shadow-blue-500 hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <img src="assets/flutter.png" alt="Flutter" class="w-10 h-10" />
+            </div>
+            <p class="mt-3 text-base font-semibold text-white">Flutter</p>
+          </div>
+
+          <!-- Dart -->
+          <div
+            class="flex flex-col items-center text-center fade-up"
+            style="animation-delay: 0.2s"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-2xl shadow-lg shadow-blue-400 flex items-center justify-center hover:shadow-blue-500 hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <img src="assets/dart.png" alt="Dart" class="w-10 h-10" />
+            </div>
+            <p class="mt-3 text-base font-semibold text-white">Dart</p>
+          </div>
+
+          <!-- Kotlin -->
+          <div
+            class="flex flex-col items-center text-center fade-up"
+            style="animation-delay: 0.3s"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-2xl shadow-lg shadow-blue-400 flex items-center justify-center hover:shadow-blue-500 hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <img
+                src="assets/Kotlin_Icon.png"
+                alt="Kotlin"
+                class="w-10 h-10"
+              />
+            </div>
+            <p class="mt-3 text-base font-semibold text-white">Kotlin</p>
+          </div>
+
+          <!-- Figma -->
+          <div
+            class="flex flex-col items-center text-center fade-up"
+            style="animation-delay: 0.4s"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-2xl shadow-lg shadow-blue-400 flex items-center justify-center hover:shadow-blue-500 hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <img src="assets/figma.png" alt="Figma" class="w-10 h-10" />
+            </div>
+            <p class="mt-3 text-base font-semibold text-white">Figma</p>
+          </div>
+
+          <!-- HTML -->
+          <div
+            class="flex flex-col items-center text-center fade-up"
+            style="animation-delay: 0.5s"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-2xl shadow-lg shadow-blue-400 flex items-center justify-center hover:shadow-blue-500 hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <img src="assets/html.png" alt="HTML" class="w-10 h-10" />
+            </div>
+            <p class="mt-3 text-base font-semibold text-white">HTML</p>
+          </div>
+
+          <!-- CSS -->
+          <div
+            class="flex flex-col items-center text-center fade-up"
+            style="animation-delay: 0.6s"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-2xl shadow-lg shadow-blue-400 flex items-center justify-center hover:shadow-blue-500 hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <img src="assets/css.png" alt="CSS" class="w-10 h-10" />
+            </div>
+            <p class="mt-3 text-base font-semibold text-white">CSS</p>
+          </div>
+
+          <!-- JavaScript -->
+          <div
+            class="flex flex-col items-center text-center fade-up"
+            style="animation-delay: 0.7s"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-2xl shadow-lg shadow-blue-400 flex items-center justify-center hover:shadow-blue-500 hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <img src="assets/js.png" alt="JavaScript" class="w-10 h-10" />
+            </div>
+            <p class="mt-3 text-base font-semibold text-white">JavaScript</p>
+          </div>
+
+          <!-- React -->
+          <div
+            class="flex flex-col items-center text-center fade-up"
+            style="animation-delay: 0.8s"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-2xl shadow-lg shadow-blue-400 flex items-center justify-center hover:shadow-blue-500 hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <img src="assets/react.png" alt="React" class="w-10 h-10" />
+            </div>
+            <p class="mt-3 text-base font-semibold text-white">React</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+
+    <!-- ===================== PORTFOLIO SHOWCASE ===================== -->
+    <section id="portfolio" class="py-24 bg-gray-950 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4 fade-left">
+          Portfolio Showcase
+        </h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mb-12 fade-right delay-3">
+         Explore my journey through various projects, certifications, and technical experiences.
+Each section represents a significant moment in my career.
+        </p>
+
+        <!-- Tabs -->
+        <div class="flex justify-center gap-6 mb-12">
+          <button
+            class="portfolio-tab active px-6 py-2 rounded-lg bg-blue-600 text-white transition fade-up"
+             style="animation-delay: 0.5s"
+          >
+            Projects
+          </button>
+          <button
+            class="portfolio-tab px-6 py-2 rounded-lg bg-gray-800 text-gray-300 transition fade-up delay-4"
+             style="animation-delay: 0.7s"
+          >
+            Certificates
+          </button>
+          <button
+            class="portfolio-tab px-6 py-2 rounded-lg bg-gray-800 text-gray-300 transition fade-up"
+             style="animation-delay: 0.9s"
+          >
+            Experience
+          </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="Portofolio">
+          <!-- Projects -->
+          <div class="portfolio-section grid md:grid-cols-3 gap-8"
+          >
+            <!-- Project Card -->
+            <div class="glass-card p-5 fade-left delay-8">
+              <img
+                src="assets/shot-58.png"
+                alt="Project 1"
+                class="rounded-md mb-4"
+              />
+              <h3 class="text-lg font-semibold">CMLABS Connect</h3>
+              <p class="text-gray-400 text-sm mt-2">
+               This application will be used internally by the company, primarily by the marketing team. It will function to manage supply and demand from CMLABS clients.
+              </p>
+            </div>
+
+            <!-- Project Card -->
+            <div class="glass-card p-5 fade-down">
+              <img
+                src="assets/shot-60.png"
+                alt="Project 2"
+                class="rounded-md mb-4"
+              />
+              <h3 class="text-lg font-semibold">Kantinku App</h3>
+              <p class="text-gray-400 text-sm mt-2">
+                Kantinku is a digital cashier application specifically designed to support canteen operations in schools, campuses, and workplaces. With a simple and user-friendly interface, Kantinku makes it easy for sellers to record transactions, manage menus, and automatically calculate total payments.
+              </p>
+            </div>
+
+            <!-- Project Card -->
+            <div class="glass-card p-5 fade-right delay-8">
+              <img
+                src="assets/shot-18.png"
+                alt="Project 3"
+                class="rounded-md mb-4"
+              />
+              <h3 class="text-lg font-semibold">Tukang App</h3>
+              <p class="text-gray-400 text-sm mt-2">
+                Tukang App is a platform that connects users with professional service providers, such as builders, home design inspiration, maintenance, and various repair or installation experts.
+              </p>
+            </div>
+
+<!-- Project Card -->
+            <div class="glass-card p-5 fade-left delay-8">
+              <img
+                src="assets/shot-64.png"
+                alt="Project 3"
+                class="rounded-md mb-4"
+              />
+              <h3 class="text-lg font-semibold">Child Care UI/UX Design</h3>
+              <p class="text-gray-400 text-sm mt-2">
+                This is a design for a digital platform that makes it easy for parents to find, book, and manage childcare services online.
+              </p>
+            </div>
+
+            <!-- Project Card -->
+            <div class="glass-card p-5 fade-up">
+              <img
+                src="assets/shot 70 1.png"
+                alt="Project 3"
+                class="rounded-md mb-4"
+              />
+              <h3 class="text-lg font-semibold">Lets Cycle UI/UX Design</h3>
+              <p class="text-gray-400 text-sm mt-2">
+               This is a design for recycling applications, created to simplify and improve waste management processes and promote sustainability.
+              </p>
+            </div>
+
+            <!-- Project Card -->
+            <div class="glass-card p-5 fade-right delay-8">
+              <img
+                src="assets/21 April (1).png"
+                alt="Project 3"
+                class="rounded-md mb-4"
+              />
+              <h3 class="text-lg font-semibold">Molen Crispy Logo Design</h3>
+              <p class="text-gray-400 text-sm mt-2">
+                This is a design for a food product logo, created to highlight a unique and striking theme.
+              </p>
+            </div>
+
+          </div>
+
+         
+        <!-- Certificates Section -->
+<div class="portfolio-section hidden grid md:grid-cols-2 gap-8 fade-left"
+ style="animation-delay: 0.5s">
+  <!-- Sertifikat 1 -->
+  <div onclick="openModal('cert1')" 
+       class="cursor-pointer glass-card p-6 hover:scale-105 transition"
+        style="animation-delay: 0.6s">
+    <h3 class="text-lg font-semibold">JavaScript Certification</h3>
+    <p class="text-gray-400 text-sm">Certiport - Information Technology Specialist</p>
+  </div>
+
+  <!-- Sertifikat 2 -->
+  <div onclick="openModal('cert2')" 
+       class="cursor-pointer glass-card p-6 hover:scale-105 transition fade-right"
+        style="animation-delay: 0.7s">
+    <h3 class="text-lg font-semibold">Fullstack Developer</h3>
+    <p class="text-gray-400 text-sm">PT. Sekawan Media Informatika</p>
+  </div>
+
+  <!-- Sertifikat 3 (contoh baru) -->
+  <div onclick="openModal('cert3')" 
+       class="cursor-pointer glass-card p-6 hover:scale-105 transition fade-left"
+        style="animation-delay: 0.8s">
+    <h3 class="text-lg font-semibold">Mobile Development</h3>
+    <p class="text-gray-400 text-sm">Certificate of Competency SMK Telkom Malang</p>
+  </div>
+
+  <!-- Sertifikat 3 (contoh baru) -->
+  <div onclick="openModal('cert4')" 
+       class="cursor-pointer glass-card p-6 hover:scale-105 transition fade-right"
+        style="animation-delay: 0.9s">
+    <h3 class="text-lg font-semibold fade-up">Advanced 3 (CEFR C1) Certification</h3>
+    <p class="text-gray-400 text-sm fade-up">English Discoveries Program</p>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.remove("hidden");
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).classList.add("hidden");
+  }
+</script>
+
+
+<!-- ========== MODALS ========== -->
+
+<!-- Modal Sertifikat 1 -->
+<div id="cert1" class="modal hidden fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+  <div class="bg-gray-900 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative p-6">
+    <button onclick="closeModal('cert1')" 
+            class="absolute top-3 right-3 bg-blue-500 px-3 py-1 rounded-lg text-white hover:bg-blue-600 z-50">
+      Close ✕
+    </button>
+    <h3 class="text-xl font-bold text-white mb-2">JavaScript Certification</h3>
+    <p class="text-gray-400 mb-4">Certiport - Information Technology Specialist</p>
+    <div class="overflow-x-auto">
+      <img src="assets/JavaScript.jpg" 
+           alt="JavaScript Certificate" 
+           class="rounded-lg mb-4 max-w-full h-auto" />
+    </div>
+  </div>
+</div>
+
+<!-- Modal Sertifikat 2 -->
+<div id="cert2" class="modal hidden fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+  <div class="bg-gray-900 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative p-6">
+    <button onclick="closeModal('cert2')" 
+            class="absolute top-3 right-3 bg-blue-500 px-3 py-1 rounded-lg text-white hover:bg-blue-600 z-50">
+      Close ✕
+    </button>
+    <h3 class="text-xl font-bold text-white mb-2">Fullstack Developer</h3>
+    <p class="text-gray-400 mb-4">PT. Sekawan Media Informatika</p>
+    <div class="overflow-x-auto">
+      <img src="assets/fullstack.jpg" 
+           alt="Fullstack Developer Certificate" 
+           class="rounded-lg mb-4 max-w-full h-auto" />
+    </div>
+  </div>
+</div>
+
+<!-- Modal Sertifikat 3 -->
+<div id="cert3" class="modal hidden fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+  <div class="bg-gray-900 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative p-6">
+    <button onclick="closeModal('cert3')" 
+            class="absolute top-3 right-3 bg-blue-500 px-3 py-1 rounded-lg text-white hover:bg-blue-600 z-50">
+      Close ✕
+    </button>
+    <h3 class="text-xl font-bold text-white mb-2">Mobile Development</h3>
+    <p class="text-gray-400 mb-4">Certificate of Competency SMK Telkom Malang</p>
+    <div class="overflow-x-auto">
+      <img src="assets/mobile.jpg" 
+           alt="Flutter Certificate" 
+           class="rounded-lg mb-4 max-w-full h-auto" />
+    </div>
+  </div>
+</div>
+
+<!-- Modal Sertifikat 4 -->
+<div id="cert4" class="modal hidden fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+  <div class="bg-gray-900 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative p-6">
+    <button onclick="closeModal('cert4')" 
+            class="absolute top-3 right-3 bg-blue-500 px-3 py-1 rounded-lg text-white hover:bg-blue-600 z-50">
+      Close ✕
+    </button>
+    <h3 class="text-xl font-bold text-white mb-2">Advanced 3 (CEFR C1) Certification</h3>
+    <p class="text-gray-400 mb-4">English Discoveries Program</p>
+    <div class="overflow-x-auto">
+      <img src="assets/certificate engdish.jpg" 
+           alt="UI/UX Certificate" 
+           class="rounded-lg mb-4 max-w-full h-auto" />
+    </div>
+  </div>
+</div>
+
+<!-- Experience Section -->
+<div id="experience" class="portfolio-section hidden">
+  <div class="glass-card grid md:grid-cols-2 items-center gap-6 p-6 fade-up">
+    <!-- Gambar sebelah kiri -->
+    <div>
+      <img 
+        src="assets/magang-cmlabs.jpg" 
+        alt="Experience Image" 
+        class="rounded-xl shadow-lg fade-left"
+         style="animation-delay: 0.5s">
+    </div>
+
+    <!-- Tulisan sebelah kanan -->
+    <div>
+      <h3 class="text-xl font-semibold">Mobile Developer Intern</h3>
+      <p class="text-gray-400 text-sm">CMLABS • 2025</p>
+      <p class="mt-3 text-gray-300 text-sm fade-up">
+        Served as a mobile developer on the Flutter-based CMLABS Connect application development project, designed to support the marketing team's bid management process
+        Developed an internal application, "CMLABS Connect," using Flutter to support the management of over 100 bid datasets for the marketing team.Implemented a filtering and tracking system that increased bid monitoring efficiency by 60%.Contributed to UI development using Figma and technical documentation for the feature.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+    <script>
+      const tabButtons = document.querySelectorAll(".portfolio-tab");
+      const fadeElems = document.querySelectorAll('.fade-down, .fade-right, .fade-left');
+      const tabSections = document.querySelectorAll(".portfolio-section");
+
+      tabButtons.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+          tabButtons.forEach((b) => {
+            b.classList.remove("bg-blue-600", "text-white");
+            b.classList.add("bg-gray-800", "text-gray-300");
+          });
+          btn.classList.add("bg-blue-600", "text-white");
+          btn.classList.remove("bg-gray-800", "text-gray-300");
+
+          tabSections.forEach((sec, i) => {
+            sec.classList.add("hidden");
+            if (i === index) sec.classList.remove("hidden");
+          });
+        });
+      });
+    </script>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-20 bg-gray-900  border-t border-gray-800 relative overflow-hidden mt-20"
+    >
+      <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+        <!-- Heading -->
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white fade-down">
+          Set up a meeting with me to see how I can help you achieve your goals.
+        </h2>
+
+        <!-- Contact Info -->
+        <div class="space-y-6 mb-12">
+          <!-- Email -->
+          <div
+            class="flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg hover:shadow-blue-500/30 transition duration-300 fade-left"
+          >
+            <!-- Gmail Outline Icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6 text-blue-400"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M4 4h16v16H4z" stroke="none" fill="none" />
+              <path d="M4 4l8 8l8-8" />
+              <path d="M4 20V8l8 8l8-8v12" />
+            </svg>
+            <a
+              href="mailto:pashaadjusta@gmail.com"
+              target="_blank"
+              class="email-btn"
+            >
+              pashaadjusta@gmail.com
+            </a>
+          </div>
+
+          <!-- Phone -->
+          <div
+            class="flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg hover:shadow-blue-500/30 transition duration-300 fade-right"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6 text-blue-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M2 5.5C2 4.12 3.12 3 4.5 3h2c.28 0 .53.11.71.29l2.54 2.54a1 1 0 01.21 1.09l-1.1 2.77a1 1 0 00.21 1.09l3.86 3.86a1 1 0 001.09.21l2.77-1.1a1 1 0 011.09.21l2.54 2.54c.18.18.29.43.29.71v2c0 1.38-1.12 2.5-2.5 2.5-10.22 0-18.5-8.28-18.5-18.5z"
+              />
+            </svg>
+            <span class="text-gray-300">+62 857-5524-6662</span>
+          </div>
+
+          <!-- Location -->
+          <div
+            class="flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-md px-5 py-3 rounded-xl shadow-lg hover:shadow-blue-500/30 transition duration-300 fade-left"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6 text-blue-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 11c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z"
+              />
+            </svg>
+            <span class="text-gray-300">Jombang, East Java, Indonesia</span>
+          </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex justify-center gap-6 fade-up">
+          <!-- Instagram -->
+          <a
+            href="https://www.instagram.com/pashadjusta_?igsh=enk5YzUyajhpbnhz"
+            target="_blank"
+            class="w-12 h-12 flex items-center justify-center bg-gray-800 rounded-full hover:bg-gradient-to-tr hover:from-pink-500 hover:to-yellow-500 transition-all duration-500 shadow-md hover:shadow-pink-400/40"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="w-6 h-6 text-white"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 4a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm5.75-.75a.75.75 0 0 1 .75.75v.5a.75.75 0 0 1-1.5 0v-.5a.75.75 0 0 1 .75-.75z"
+              />
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a
+            href="https://www.linkedin.com/in/pasha-adjusta-54648a2b4/"
+            target="_blank"
+            class="w-12 h-12 flex items-center justify-center bg-gray-800 rounded-full hover:bg-blue-600 transition-all duration-500 shadow-md hover:shadow-blue-400/40"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="w-6 h-6 text-white"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.34 17V10.77H6V17H8.34ZM7.17 9.8A1.37 1.37 0 1 0 7.17 7.06A1.37 1.37 0 0 0 7.17 9.8ZM18 17V13.25C18 11.32 17.16 10.4 15.54 10.4C14.39 10.4 13.73 11.06 13.46 11.61H13.42V10.77H11.17V17H13.5V13.56C13.5 12.85 13.63 12.17 14.48 12.17C15.33 12.17 15.36 12.95 15.36 13.6V17H18Z"
+              />
+            </svg>
+          </a>
+
+          <!-- GitHub -->
+          <a
+            href="https://github.com/pashadjusta"
+            target="_blank"
+            class="w-12 h-12 flex items-center justify-center bg-gray-800 rounded-full hover:bg-gray-700 transition-all duration-500 shadow-md hover:shadow-gray-400/40"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="w-6 h-6 text-white"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 0a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61a3.18 3.18 0 0 0-1.34-1.76c-1.09-.74.08-.73.08-.73a2.52 2.52 0 0 1 1.84 1.24a2.54 2.54 0 0 0 3.47 1a2.54 2.54 0 0 1 .76-1.6c-2.67-.3-5.47-1.33-5.47-5.93a4.65 4.65 0 0 1 1.24-3.23a4.3 4.3 0 0 1 .12-3.19s1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23a4.3 4.3 0 0 1 .12 3.19a4.65 4.65 0 0 1 1.24 3.23c0 4.61-2.81 5.63-5.49 5.93a2.85 2.85 0 0 1 .81 2.21v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 0Z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Script (VERSI 2): Navbar + IntersectionObserver smooth reveal -->
+    <script src="script.js"></script>
+  </body>
+</html>
